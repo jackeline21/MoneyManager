@@ -1,0 +1,23 @@
+{
+  "name": "money-manager",
+  "version": "1.0.0",
+  "description": "Gestor de dinero",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackeline21/MoneyManager.git"
+  },
+  "keywords": [
+    "money",
+    "manager"
+  ],
+  "author": "Jackeline Varela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackeline21/MoneyManager/issues"
+  },
+  "homepage": "https://github.com/jackeline21/MoneyManager#readme"
+}
