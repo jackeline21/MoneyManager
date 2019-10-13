@@ -4,7 +4,6 @@
   "description": "Gestor de dinero",
   "main": "index.js",
   "scripts": {
-    
     "start": "nodemon ./index"
   },
   "repository": {
