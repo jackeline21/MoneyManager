@@ -25,7 +25,7 @@ module.exports = {
         // Mostrar las categorías
         ListaCategorias.forEach(categoria => {
             html += `<li>${categoria}</li>`;
-        });
+        }); 
 
         return (options.fn().html = html);
     }
