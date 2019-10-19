@@ -9670,13 +9670,13 @@ button.bg-dark:focus {
     text-align: center !important; } }
 
 .text-lowercase {
-  text-transform: lowercase !important; }
+  text-transform: none !important; }
 
 .text-uppercase {
   text-transform: uppercase !important; }
 
 .text-capitalize {
-  text-transform: capitalize !important; }
+  text-transform: none !important; }
 
 .font-weight-light {
   font-weight: 300 !important; }
@@ -11894,7 +11894,6 @@ code {
   .card .card-title {
     color: #343a40;
     margin-bottom: 0.75rem;
-    text-transform: capitalize;
     font-family: "ubuntu-medium", sans-serif;
     font-size: 1.125rem; }
   .card .card-subtitle {
