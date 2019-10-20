@@ -8,3 +8,14 @@ exports.mostrarInicio = function(req, res){
     });
     
 }
+
+exports.mostrarInicio1 = function(req, res){
+    res.render("principal", {
+        layout: "appHome.handlebars",
+        nombrePagina: "Inicio",
+        tagline: "Administra tu dinero de la mejor manera",
+        barra: true,
+        boton: true
+    });
+    
+}
