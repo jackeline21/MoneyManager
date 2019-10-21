@@ -1,7 +1,7 @@
 
 exports.mostrarInicio = function(req, res){
         res.render("landingPage", {
-            nombrePagina: "Inicio"  
+            nombrePagina: "WomanPurse"  
         });
     
 }

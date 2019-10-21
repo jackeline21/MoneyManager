@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 require("./config/db");
 const express = require("express");
 const expressHandleBars = require("express-handlebars");
@@ -8,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongooseStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
+
+
 
 // Archivo para las variables de entorno
 require("dotenv").config({path: "variables"});
@@ -29,6 +32,8 @@ app.engine(
 
 app.set("view engine", "handlebars");
 
+
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cookieParser());
@@ -42,6 +47,8 @@ app.use(
         store: new MongooseStore({ mongooseConnection: mongoose.connection })
     })
 );
+
+
 
 app.use("/", router());
 
