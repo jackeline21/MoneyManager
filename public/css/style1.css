@@ -1875,6 +1875,9 @@ sub {
 sup {
   top: -.5em; }
 
+#gastosBorde {
+  margin-top: 1em;
+}
 a {
   color: #007bff;
   text-decoration: none;

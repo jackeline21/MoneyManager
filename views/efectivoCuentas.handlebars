@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{{nombrePagina}}}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
@@ -21,7 +20,6 @@
   <body>
     
     <div class="container-scroller">
-      
       <!-- partial:partials/_navbar.html -->
       <!--header-->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -187,7 +185,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/appHome">
+              <a class="nav-link" href="index.html">
                 <span class="menu-title">Inicio</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -198,72 +196,23 @@
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Cuentas</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-cash-multiple menu-icon"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/cuentasEfectivo.html">Banco</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Tarjeta</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Efectivo</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/cuentasEfectivo.html">Efectivo</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                 </ul>
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar cuenta</button>
               </div>
             </li>
             <!--Fin lista de cuentas -->
 
-            <!-- Menú categorías de gastos -->
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Categorías de gastos</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-shopping menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar categoría</button>
-              </div>
-            </li>
-            <!--Fin lista de categorías de gastos -->
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
-                  <h6 class="font-weight-bold mb-3"> Agregar gastos por cuenta</h6>
+                  <h6 class="font-weight-normal mb-3">Gastos</h6>
                 </div>
-                <!-- formulario agregar gasto -->
-                <div id="gastosBorde" class="border-botom">
-                  <!-- Tipo de cuenta -->
-                  <div class="form-group ">
-                    <label for="exampleFormControlSelect1">Selecione la cuenta</label>
-                    <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                      <option>Banco</option>
-                      <option>Tarjeta</option>
-                      <option>Efectivo</option>
-                    </select>
-                  </div>
-
-                  <!-- Tipo de gasto -->
-                  <div class="form-group ">
-                    <label for="exampleFormControlSelect1">Selecione el tipo de gasto</label>
-                    <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                      <option>Ropa</option>
-                      <option>Comida</option>
-                      <option>Alquiler</option>
-                    </select>
-                  </div>
-
-                  <!-- cantidad de dinero-->
-                  <label for="exampleFormControlSelect1">Agregue la cantidad de su gasto</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-gradient-primary text-white">L</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                    <div class="input-group-append">
-                      <span class="input-group-text">.00</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Fin formulario agregar gasto -->
-                <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar gasto</button>
+                <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar un gasto</button>
               </span>
             </li>
           </ul>
@@ -272,6 +221,7 @@
         <!-- partial -->
         <div class="main-panel">
           {{{body}}}
+        </div>
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
