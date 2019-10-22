@@ -25,11 +25,11 @@ const usuarioSchema = mongoose.Schema({
 });
 
 // Hooks (método) para hash + salt password
-userSchema.pre("save", function(next) {
-    const user = this;
+usuarioSchema.pre("save", function(next) {
+    const usuario = this;
 
     // Si el password ya fué modificado (ya hasheado)
-    if(!user.isModified("password")) {
+    if(!usuario.isModified("password")) {
         return next();
     }
 
@@ -41,17 +41,17 @@ userSchema.pre("save", function(next) {
         if (err) return next(err);
 
         // Si se produjo el salt, realizar el hash
-        bcrypt.hash(user.password, salt, (err, hash) => {
+        bcrypt.hash(usuario.password, salt, (err, hash) => {
             if (err) return next(err);
   
-            user.password = hash;
+            usuario.password = hash;
             next();
         });
     }); 
 });
 
 // Hooks para poder pasar los errores de MongoBD hacia express validator
-userSchema.post("save", function(error, doc, next) {
+usuarioSchema.post("save", function(error, doc, next) {
     // Verificar que es un error en MongoDB
     if(error.name === "MongoError" && error.code === 11000) {
         next(
@@ -63,4 +63,4 @@ userSchema.post("save", function(error, doc, next) {
     }
 });
 
-module.exports = mongoose.model("Usuario", userSchema);
+module.exports = mongoose.model("usuario", usuarioSchema);

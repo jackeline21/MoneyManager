@@ -10,3 +10,7 @@ mongoose.connect(process.env.DATABASE,{
 mongoose.connection.on("error", error => {
     console.log(error);
 })
+
+require("../models/categoria");
+require("../models/purse");
+require("../models/usuario");
