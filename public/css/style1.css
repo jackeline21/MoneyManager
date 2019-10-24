@@ -1767,7 +1767,7 @@
   --warning: #fed713;
   --danger: #fe7c96;
   --light: #f8f9fa;
-  --dark: #3e4b5b;
+  --dark: #303235;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -1797,7 +1797,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #343a40;
+  color: #303235;
   text-align: left;
   background-color: #fff; }
 
@@ -13376,5 +13376,16 @@ dl {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1; }
-
+/*
+  #navColor {
+    background-color: #be46ff;
+  }
+*/
+#userName {
+  color: #b66dff;
+  margin-bottom: -1.2em;
+}
+#userName span {
+  color: #0f1531;
+}
 /*# sourceMappingURL=style.css.map */

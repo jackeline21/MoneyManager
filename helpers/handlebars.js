@@ -1,3 +1,6 @@
+//const mongoose = require("mongoose");
+//const Purse = mongoose.model("Purse");
+
 module.exports = {
     Categorias: (e, options) => {
         const ListaCategorias = [
@@ -28,5 +31,8 @@ module.exports = {
         }); 
 
         return (options.fn().html = html);
-    }
+    },
+
+    
+
 }
