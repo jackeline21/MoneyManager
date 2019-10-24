@@ -55,3 +55,9 @@ exports.authenticateUser = function(req, res, next){
         failureFlash: true
     })(req, res, next);
 }
+
+exports.logOut = function(req, res){
+    req.logout();
+    req.flash("Sesión cerrada")
+    res.redirect("/iniciarSesion");
+}

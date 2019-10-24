@@ -24,7 +24,7 @@ exports.mostrarInicio1 = function(req, res){
         });
     } else {
         res.render("homeNewUser", {
-            layout: "appHome.handlebars",
+            layout: "main.handlebars",
             nombrePagina: "Inicio"
         })
     }

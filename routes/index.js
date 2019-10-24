@@ -10,11 +10,15 @@ module.exports = () => {
     router.get("/appHome", homeController.mostrarInicio1);
     router.get("/efectivoCuentas", homeController.efectivoCuentas);
     router.get("/inicioApp", homeController.bodyInicio);
+    router.get("/homeNewUser",homeController.mostrarInicio1);
 
     // Rutas de usuario
     // Inicio de sesión
     router.get("/iniciarSesion", userController.iniciarSesion);
     router.post("/iniciarSesion", userController.authenticateUser);
+
+    //logout
+    router.get("/logout", userController.logOut);
 
     // Crear cuenta
     router.get("/crearCuenta", userController.crearCuenta);
