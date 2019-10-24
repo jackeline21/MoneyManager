@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Usuario = mongoose.model("usuario")
+const User = mongoose.model("usuario")
 const { validationResult } = require("express-validator");
 const passport = require("passport");
 
@@ -38,9 +38,9 @@ exports.saveUser = async(req, res, next) => {
 
     //crear el usuario
 
-    const usuario = new Usuario(req.body)
+    const user = new User(req.body)
 
-    await usuario.save();
+    await user.save();
 
     res.redirect("/iniciarSesion")
 

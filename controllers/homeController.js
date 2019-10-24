@@ -1,4 +1,7 @@
+const mongoose = require("mongoose");
+const Purse = mongoose.model("Purse");
 
+// Landing Page 
 exports.mostrarInicio = function(req, res){
         res.render("landingPage", {
             nombrePagina: "WomanPurse"  
@@ -6,23 +9,28 @@ exports.mostrarInicio = function(req, res){
     
 }
 
+// Inicio de la App
 exports.mostrarInicio1 = function(req, res){
-    res.render("inicioApp", {
-        layout: "appHome.handlebars",
-        nombrePagina: "Inicio"  
-    });
+    
+    // Evaluar si es un usuario existente o no 
+
+    let purse = Purse.count()
+    console.log(res.locals.user.email);
+    console.log(Purse);
+    if(!purse) {
+        res.render("inicioApp", {
+            layout: "appHome.handlebars",
+            nombrePagina: "Inicio"  
+        });
+    } else {
+        res.render("homeNewUser", {
+            layout: "appHome.handlebars",
+            nombrePagina: "Inicio"
+        })
+    }
+    
 
 }
-
-// exports.mostrarInicio1 = function(req, res){
-//     res.render("principal", {
-//         layout: "appHome.handlebars",
-//         nombrePagina: "Inicio",
-//         tagline: "Administra tu dinero de la mejor manera",
-//         barra: true,
-//         boton: true
-//     });  
-// }
 
 exports.efectivoCuentas = function(req, res){
     res.render("principal", {
