@@ -27,15 +27,13 @@ exports.mostrarInicio1 = function(req, res){
             layout: "main.handlebars",
             nombrePagina: "Inicio"
         })
-    }
-    
-
+    }    
 }
 
-exports.efectivoCuentas = function(req, res){
-    res.render("principal", {
-        layout: "efectivoCuentas.handlebars",
-        nombrePagina: "Inicio",
+exports.cuenta = function(req, res){
+    res.render("cuenta", {
+        layout: "appHome.handlebars",
+        nombrePagina: "Cuentas",
         tagline: "Administra tu dinero de la mejor manera",
         barra: true,
         boton: true

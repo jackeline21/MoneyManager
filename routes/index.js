@@ -8,7 +8,7 @@ module.exports = () => {
 
     router.get("/", homeController.mostrarInicio);
     router.get("/appHome", homeController.mostrarInicio1);
-    router.get("/efectivoCuentas", homeController.efectivoCuentas);
+    router.get("/cuenta", homeController.cuenta);
     router.get("/inicioApp", homeController.bodyInicio);
     router.get("/homeNewUser",homeController.mostrarInicio1);
 
