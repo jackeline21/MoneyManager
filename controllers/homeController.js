@@ -17,28 +17,24 @@ exports.mostrarInicio1 = function(req, res){
     let purse = Purse.count()
     console.log(res.locals.user.email);
     console.log(Purse);
-    if(!purse) {
-        res.render("inicioApp", {
-            layout: "appHome.handlebars",
-            nombrePagina: "Inicio"  
-        });
-    } else {
-        res.render("homeNewUser", {
-            layout: "main.handlebars",
-            nombrePagina: "Inicio"
-        })
-    }    
-}
+    purse.countDocuments({user: req.user._id}, function(err, count){
+        if(count>0) {
+            res.render("inicioApp", {
+                layout: "appHome.handlebars",
+                nombrePagina: "Inicio"  
+            });
+            console.log("Si está registrado")
+        } else {
+            res.render("homeNewUser", {
+                layout: "main.handlebars",
+                nombrePagina: "Inicio"
+            });
+            console.log("No está registrado")
+        }   
 
-exports.cuenta = function(req, res){
-    res.render("cuenta", {
-        layout: "appHome.handlebars",
-        nombrePagina: "Cuentas",
-        tagline: "Administra tu dinero de la mejor manera",
-        barra: true,
-        boton: true
-    });  
-}
+    })
+    
+};
 
 exports.bodyInicio = function(req, res){
     res.render("principal", {
@@ -48,4 +44,16 @@ exports.bodyInicio = function(req, res){
         barra: true,
         boton: true
     });  
-}
+};
+
+// Manejo de cuentas
+exports.cuenta = function(req, res){
+    res.render("cuenta", {
+        layout: "appHome.handlebars",
+        nombrePagina: "Cuentas",
+        tagline: "Administra tu dinero de la mejor manera",
+        barra: true,
+        boton: true
+    });  
+};
+

@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
+// Schema de las cuentas
 const purseSchema = new mongoose.Schema({
     user:{
         type: String,
         required: true
+    },
+    salary: {
+        type: Number
     },
     accounts: [{
         name: {

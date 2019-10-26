@@ -8,7 +8,7 @@ const usuarioSchema = mongoose.Schema({
         type: String,
         unique: true,
         lowercase: true,
-        trim: true
+            
     },
     name: {
         type: String,
