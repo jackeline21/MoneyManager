@@ -55,8 +55,9 @@ const purseSchema = new mongoose.Schema({
         comment:{
             type: String
         },
-        account: {
-            name: String
+        account:{
+            name: String,
+            
         }
     }]
 })
