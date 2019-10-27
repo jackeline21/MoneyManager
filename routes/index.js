@@ -55,6 +55,10 @@ module.exports = () => {
 
     // Add Ingreso
     router.post("/addIncome", purseController.addIncome);
+
+    // Agregar gasto
+    router.post("/addExpense", purseController.addExpense);
+    
     return router;
 };
 

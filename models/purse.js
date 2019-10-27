@@ -49,15 +49,11 @@ const purseSchema = new mongoose.Schema({
             required: true
         }, 
         amount:{
-            type: Boolean,
+            type: Number,
             required: true
         },
         comment:{
             type: String
-        },
-        date: {
-            type: Date,
-            required: true
         },
         account: {
             name: String

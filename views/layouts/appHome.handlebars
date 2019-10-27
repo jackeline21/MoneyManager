@@ -183,7 +183,7 @@
 
           </div>
           <div class="modal-body ">
-            <h3 class="modal-title">Agregar Nueva cuenta</h3>
+            <h3 class="modal-title">Agregar nueva cuenta</h3>
             <!-- content goes here -->
             <form action="/addAcount" method="POST">
 
@@ -309,12 +309,12 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5">
 
-              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Dark</button>
+              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Cancelar</button>
 
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5">
 
-              <button type="button" class="btn btn-gradient-primary btn-rounded btn-fw">Primary</button>
+              <button type="button" class="btn btn-gradient-primary btn-rounded btn-fw">Aceptar</button>
 
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1">
@@ -398,7 +398,6 @@
     <!--///////////////////////////////////////////////////////////////////////////-->
 
     <!-- MODAL AGREGAR GASTO-->
-    <!-- line modal -->
     <div class="modal fade bd-example-modal-lg" id="squarespaceModal4" tabindex="-1" role="dialog"
       aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog ">
@@ -409,69 +408,73 @@
 
           </div>
           <div class="modal-body ">
-            <h3 class="modal-title">Agregar gasto</h3>
+            <h3 class="modal-title">Agregar un nuevo gasto</h3>
             <!-- content goes here -->
-            <!-- formulario agregar gasto -->
-            <div id="gastosBorde" class="border-botom">
-              <!-- Tipo de cuenta -->
-              <div class="form-group ">
-                <label for="exampleFormControlSelect1">Selecione la cuenta</label>
-                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-
-
-                  <option> </option>
-                  <option>Tarjeta</option>
-                  <option>Efectivo</option>
-                </select>
-              </div>
-
-              <!-- Tipo de gasto -->
-              <div class="form-group ">
-                <label for="exampleFormControlSelect1">Selecione el tipo de gasto</label>
-                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                  {{#Categorias cualquierCosa}}
-                  {{/Categorias}}
-                </select>
-              </div>
-
-              <!-- cantidad de dinero-->
-              <label for="exampleFormControlSelect1">Agregue la cantidad de su gasto</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-gradient-primary text-white">L</span>
+            <form action="/addExpense" method="POST">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="currency">Cantidad</label>
+                    <input type="number" autocomplete="off" class="form-control text-left" id="currency" name="amount"
+                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': 'L ', 'placeholder': '0'">
+                  </div>
+                  <!-- /input-group -->
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                <div class="input-group-append">
-                  <span class="input-group-text">.00</span>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <!-- Tipo de gasto -->
+                  <div class="form-group ">
+                    <label for="exampleFormControlSelect1">Selecione el tipo de gasto</label>
+                    <select name="category" class="form-control form-control-lg" id="exampleFormControlSelect1">
+                      {{#Categorias cualquierCosa}}
+                      {{/Categorias}}
+                    </select>
+                  </div>
                 </div>
+                <!-- /.input group -->
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label for="sel1">Cuenta</label>
+                    <select class="form-control" name="account" id="sel1">
+                      {{#accountLister data}}
+                      {{/accountLister}}
+                    </select>
+                  </div>
+                </div>
+                
               </div>
+        
+              <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" autocomplete="off" name="comment" class="form-control" placeholder="Descripcion">
+              </div>
+              <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
             </div>
-            <!-- Fin formulario agregar gasto -->
+            <div class="col-lg-5 col-md-5 col-sm-5">
 
+              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Cancelar</button>
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Aceptar</button>
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
           </div>
+            </form>
 
-          <div class="row">
-            <div class="col-lg-1 col-md-1 col-sm-1">
-
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-
-              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Dark</button>
-
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-
-              <button type="button" class="btn btn-gradient-primary btn-rounded btn-fw">Primary</button>
-
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1">
-
-            </div>
           </div>
         </div>
       </div>
     </div>
     <!--/MODAL AGREGAR GASTO -->
+
     <!--//////////////////////////////////////////////////////////////////////////-->
 
     <!-- container-scroller -->

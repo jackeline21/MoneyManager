@@ -88,3 +88,24 @@ exports.addIncome = async(req, res) => {
     console.log(req.body);
 
 }
+
+exports.addExpense = async(req, res) => {
+    console.log(req.body);
+    purse.updateOne({
+        user: req.user._id
+    },
+    {
+        $push:{expense:{
+            "category": req.body.category,
+            "amount": Number(req.body.amount),
+            "account": req.body.account,
+            "comment": req.body.comment
+        }}
+        
+        
+    },function(err, cb) {
+        console.log(err); 
+    })
+
+    res.redirect("/appHome");
+}
