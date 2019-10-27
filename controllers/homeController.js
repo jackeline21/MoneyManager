@@ -2,9 +2,13 @@ const mongoose = require("mongoose");
 const Purse = mongoose.model("Purse");
 
 // Landing Page 
-exports.mostrarInicio = function(req, res){
+exports.mostrarInicio = async(req, res) =>{
+    const purs = await Purse.findOne({user: req.user._id});
+        
         res.render("landingPage", {
-            nombrePagina: "WomanPurse"  
+            data: purs,
+            nombrePagina: "WomanPurse",
+            data: purs 
         });
     
 }
@@ -46,10 +50,13 @@ exports.mostrarAppHome = async(req, res) => {
 
 }
 
-exports.bodyInicio = function(req, res){
+exports.bodyInicio = async(req, res) =>{
+    const purs = await Purse.findOne({user: req.user._id});
+
     res.render("principal", {
         layout: "inicioApp.handlebars",
         nombrePagina: "Inicio",
+        data: purs,
         tagline: "Administra tu dinero de la mejor manera",
         barra: true,
         boton: true
@@ -57,10 +64,12 @@ exports.bodyInicio = function(req, res){
 };
 
 // Manejo de cuentas
-exports.cuenta = function(req, res){
+exports.cuenta = async(req, res) =>{
+    const purs = await Purse.findOne({user: req.user._id});
     res.render("cuenta", {
         layout: "appHome.handlebars",
         nombrePagina: "Cuentas",
+        data: purs,
         tagline: "Administra tu dinero de la mejor manera",
         barra: true,
         boton: true
