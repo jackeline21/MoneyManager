@@ -27,11 +27,25 @@ module.exports = {
 
         // Mostrar las categorías
         ListaCategorias.forEach(categoria => {
-            html += `<li>${categoria}</li>`;
+            
+            html += `<option>${categoria}</option>`;
         }); 
 
         return (options.fn().html = html);
     },
+    accountLister: (e, options) => {
+
+
+        let html = "";
+
+        // Mostrar las categorías
+        e.account.forEach(acc => {
+            
+            html += `<option>${acc.name}</option>`;
+        }); 
+
+        return (options.fn().html = html);
+    }
 
     
 

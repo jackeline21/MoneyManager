@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -47,7 +48,7 @@
               Cerrar Sesión
             </a>
           </li>
-          
+
           <li class="nav-item nav-settings d-none d-lg-block">
             <a class="nav-link" href="#">
               <i class="mdi mdi-format-line-spacing"></i>
@@ -99,75 +100,64 @@
               <i class="menu-arrow"></i>
               <i class="mdi mdi-cash-multiple menu-icon"></i>
             </a>
+
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/cuentasEfectivo.html">Banco</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Tarjeta</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Efectivo</a></li>
               </ul>
-              <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar cuenta</button>
+              <button class="btn btn-block btn-sm btn-gradient-primary mt-4" data-toggle="modal"
+                data-target="#squarespaceModal">+ Agregar cuenta</button>
             </div>
           </li>
           <!--Fin lista de cuentas -->
 
           <!-- Menú categorías de gastos -->
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
+              aria-controls="ui-basic1">
               <span class="menu-title">Categorías de gastos</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-shopping menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
-              <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar categoría</button>
+            <div class="collapse" id="ui-basic1">
+              <button data-toggle="modal" data-target="#squarespaceModal2"
+                class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar categoría</button>
             </div>
           </li>
           <!--Fin lista de categorías de gastos -->
-          <li class="nav-item sidebar-actions">
-            <span class="nav-link">
-              <div class="border-bottom">
-                <h6 class="font-weight-bold mb-3"> Agregar gastos por cuenta</h6>
-              </div>
-              <!-- formulario agregar gasto -->
-              <div id="gastosBorde" class="border-botom">
-                <!-- Tipo de cuenta -->
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">Selecione la cuenta</label>
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                
-                    
-                    <option> {{#Categorias cualquierCosa}}
-                      {{/Categorias}}</option>
-                    <option>Tarjeta</option>
-                    <option>Efectivo</option>
-                  </select>
-                </div>
 
-                <!-- Tipo de gasto -->
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">Selecione el tipo de gasto</label>
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                    <option>Ropa</option>
-                    <option>Comida</option>
-                    <option>Alquiler</option>
-                  </select>
-                </div>
-
-                <!-- cantidad de dinero-->
-                <label for="exampleFormControlSelect1">Agregue la cantidad de su gasto</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-gradient-primary text-white">L</span>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                  <div class="input-group-append">
-                    <span class="input-group-text">.00</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin formulario agregar gasto -->
-              <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar gasto</button>
-            </span>
+          <!-- Menú ingresos -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false"
+              aria-controls="ui-basic2">
+              <span class="menu-title">Ingresos</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-cash-multiple menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic2">
+              <button class="btn btn-block btn-sm btn-gradient-primary mt-4" data-toggle="modal"
+                data-target="#squarespaceModal3">+ Agregar ingreso</button>
+            </div>
           </li>
+          <!--Fin lista de ingrsos -->
+
+          <!-- Menú gastos -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false"
+              aria-controls="ui-basic3">
+              <span class="menu-title">Gastos</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-cash-multiple menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic3">
+
+              <button class="btn btn-block btn-sm btn-gradient-primary mt-4" data-toggle="modal"
+                data-target="#squarespaceModal4">+ Agregar gasto</button>
+            </div>
+          </li>
+          <!--Fin lista de gastos -->
         </ul>
       </nav>
       <!-- fin sidebar -->
@@ -178,6 +168,312 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+
+    <!--/////////////////////////////////////////////////////////////////////////-->
+
+    <!-- MODAL AGREGAR CUENTA -->
+    <!-- line modal -->
+    <div class="modal fade bd-example-modal-lg" id="squarespaceModal" tabindex="-1" role="dialog"
+      aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                class="sr-only">Close</span></button>
+
+          </div>
+          <div class="modal-body ">
+            <h3 class="modal-title">Agregar Nueva cuenta</h3>
+            <!-- content goes here -->
+            <form action="/addAcount" method="POST">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Nombre de la cuenta:</label>
+                    <input name="account" type="text" class="form-control" id="exampleInputName1"
+                      placeholder="Tarjeta de Crédito 1" required="required">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <button data-dismiss="modal" class="btn btn-gradient-dark btn-rounded btn-fw">Cancelar</button>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Aceptar</button>
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+          </div>
+          </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--/MODAL AGREGAR CUENTA-->
+
+    <!--/////////////////////////////////////////////////////////////////////-->
+
+    <!-- MODAL AGREGAR CATEGORIA DE GASTOS -->
+    <!-- line modal -->
+    <div class="modal fade bd-example-modal-lg" id="squarespaceModal2" tabindex="-1" role="dialog"
+      aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                class="sr-only">Close</span></button>
+
+          </div>
+          <div class="modal-body ">
+            <h3 class="modal-title">Nuevo Ingreso</h3>
+            <!-- content goes here -->
+            <form action="/add_income" method="POST">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="currency">Introduzca el valor</label>
+                    <input type="text" autocomplete="off" class="form-control text-left" id="currency" name="amount"
+                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': 'L ', 'placeholder': '0'">
+                  </div>
+                  <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-md-6">
+
+                  <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <div class="input-group date">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" autocomplete="off" name="date" class="form-control pull-right dateselect"
+                        id="datepicker" required="required">
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <!-- /.col-lg-6 -->
+                </div>
+
+                <!-- /.input group -->
+              </div>
+
+              <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" autocomplete="off" name="comment" class="form-control" placeholder="Descripcion">
+              </div>
+
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sel1">Categoría</label>
+                    <select class="form-control" name="category" id="sel1">
+
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sel1">Cuenta</label>
+                    <select class="form-control" name="account" id="sel1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" hidden="hidden" id="addIncome-button"></button>
+
+            </form>
+
+          </div>
+
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Dark</button>
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="button" class="btn btn-gradient-primary btn-rounded btn-fw">Primary</button>
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/MODAL AGREGAR CATEGORIA DE GASTO-->
+
+    <!--/////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- MODAL AGREGAR INGRESO -->
+    <!-- line modal -->
+    <div class="modal fade bd-example-modal-lg" id="squarespaceModal3" tabindex="-1" role="dialog"
+      aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                class="sr-only">Close</span></button>
+
+          </div>
+          <div class="modal-body ">
+            <h3 class="modal-title">Agregar nuevo ingreso</h3>
+            <!-- content goes here -->
+            <form action="/addIncome" method="POST">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="currency">Cantidad</label>
+                    <input type="number" autocomplete="off" class="form-control text-left" id="currency" name="amount"
+                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': 'L ', 'placeholder': '0'">
+                  </div>
+                  <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label for="sel1">Cuenta</label>
+                    <select class="form-control" name="account" id="sel1">
+                      {{#accountLister data}}
+                      {{/accountLister}}
+                    </select>
+                  </div>
+                </div>
+                <!-- /.input group -->
+              </div>
+
+              <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" autocomplete="off" name="comment" class="form-control" placeholder="Descripcion">
+              </div>
+              <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Cancelar</button>
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="submit" class="btn btn-gradient-primary btn-rounded btn-fw">Aceptar</button>
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+          </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/MODAL AGREGAR INGRESO -->
+
+    <!--///////////////////////////////////////////////////////////////////////////-->
+
+    <!-- MODAL AGREGAR GASTO-->
+    <!-- line modal -->
+    <div class="modal fade bd-example-modal-lg" id="squarespaceModal4" tabindex="-1" role="dialog"
+      aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                class="sr-only">Close</span></button>
+
+          </div>
+          <div class="modal-body ">
+            <h3 class="modal-title">Agregar gasto</h3>
+            <!-- content goes here -->
+            <!-- formulario agregar gasto -->
+            <div id="gastosBorde" class="border-botom">
+              <!-- Tipo de cuenta -->
+              <div class="form-group ">
+                <label for="exampleFormControlSelect1">Selecione la cuenta</label>
+                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+
+
+                  <option> </option>
+                  <option>Tarjeta</option>
+                  <option>Efectivo</option>
+                </select>
+              </div>
+
+              <!-- Tipo de gasto -->
+              <div class="form-group ">
+                <label for="exampleFormControlSelect1">Selecione el tipo de gasto</label>
+                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                  {{#Categorias cualquierCosa}}
+                  {{/Categorias}}
+                </select>
+              </div>
+
+              <!-- cantidad de dinero-->
+              <label for="exampleFormControlSelect1">Agregue la cantidad de su gasto</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-gradient-primary text-white">L</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+            <!-- Fin formulario agregar gasto -->
+
+          </div>
+
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="button" class="btn btn-gradient-dark btn-rounded btn-fw">Dark</button>
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+
+              <button type="button" class="btn btn-gradient-primary btn-rounded btn-fw">Primary</button>
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/MODAL AGREGAR GASTO -->
+    <!--//////////////////////////////////////////////////////////////////////////-->
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/vendors/js/vendor.bundle.base.js"></script>
@@ -194,6 +490,8 @@
     <script src="/js/dashboard.js"></script>
     <script src="/js/todolist.js"></script>
     <!-- End custom js for this page -->
+
+
 </body>
 
 </html>

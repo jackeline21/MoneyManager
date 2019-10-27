@@ -3,6 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const homeController = require("../controllers/homeController");
 const userController = require("../controllers/userController");
+const purseController = require("../controllers/purseController");
 
 module.exports = () => {
 
@@ -11,6 +12,8 @@ module.exports = () => {
     router.get("/cuenta", homeController.cuenta);
     router.get("/inicioApp", homeController.bodyInicio);
     router.get("/homeNewUser",homeController.mostrarInicio1);
+    router.get("/home", homeController.mostrarAppHome)
+    
 
     // Rutas de usuario
     // Inicio de sesión
@@ -44,6 +47,14 @@ module.exports = () => {
             .custom((value, { req }) => value === req.body.password)
     ], userController.saveUser);
     
+    // purse controller
+    router.post("/start", purseController.start);
+
+    // add Account
+    router.post("/addAcount", purseController.addAccount);
+
+    // Add Ingreso
+    router.post("/addIncome", purseController.addIncome);
     return router;
 };
 

@@ -5,17 +5,20 @@ mongoose.Promise = global.Promise;
 const purseSchema = new mongoose.Schema({
     user:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-    salary: {
-        type: Number
-    },
-    accounts: [{
-        name: {
-            type: String
-        },
+    budget:[{
         amount: {
             type: Number
+        },
+        month: {
+            type: String
+        }
+    }],
+    account:[{
+        name: {
+            type: String
         }
     }],
     savings: [{
@@ -27,6 +30,17 @@ const purseSchema = new mongoose.Schema({
         },
         amount: {
             type: Number
+        }
+    }],
+    income: [{
+        amount: {
+            type: Number
+        },
+        account: {
+            type: String
+        },
+        comment: {
+            type: String
         }
     }],
     expense: [{

@@ -29,7 +29,7 @@
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="/images/logo.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/images/logo-mini.svg"
+                <a class="navbar-brand brand-logo-mini" href="/"><img src="/images/logo-mini.svg"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -137,53 +137,41 @@
                     <!--Fin tarjeta de cuenta-->
 
                     <!-- Formularios para crear nueva cuenta-->
-                    <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Crea tu primera cuenta.</h4>
-                                <p class="card-description"> Ingresa la cuenta que quieras gestionar, por ejemplo la
-                                    cuenta de tu tarjeta de credito. </p>
+                    
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <form action="/start" method="POST">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Crea tu primera cuenta.</h4>
+                                    <p class="card-description"> Ingresa la cuenta que quieras gestionar, por ejemplo la
+                                        cuenta de tu tarjeta de credito. </p>
 
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Nombre de la cuenta:</label>
-                                    <input type="text" class="form-control" id="exampleInputName1"
-                                        placeholder="Tarjeta de Crédito 1">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Cantidad inicial de la cuenta:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text bg-gradient-primary text-white">L</span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="10,000.00"
-                                            aria-label="Amount (to the nearest dollar)">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">.00</span>
+                                    <div class="form-group">
+                                        <label for="exampleInputName1">Nombre de la cuenta:</label>
+                                        <input name="account" type="text" class="form-control" id="exampleInputName1"
+                                            placeholder="Tarjeta de Crédito 1" required="required">
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <label for="exampleInputName1">Presupuesto mensual:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text bg-gradient-primary text-white">L</span>
+                                            </div>
+                                            <input name="budget" type="number" class="form-control" placeholder="2,000.00"
+                                                aria-label="Amount (to the nearest dollar)" required="required">
+                                            <div class="input-group-append">
+                    
+                                            </div>
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar cuenta</button>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Si deseas puedes ahorrar una cantidad de dinero al
-                                        mes, ingresala:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text bg-gradient-primary text-white">L</span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="2,000.00"
-                                            aria-label="Amount (to the nearest dollar)">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-block btn-sm btn-gradient-primary mt-4">+ Agregar cuenta</button>
                             </div>
+                            <!-- Fin del formularios para crear nueva cuenta-->
+                        </form>
                         </div>
-                        <!-- Fin del formularios para crear nueva cuenta-->
-
-                    </div>
+                    
 
                 </div>
                 <!--Fin div resúmenm de cuentas-->

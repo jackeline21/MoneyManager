@@ -19,11 +19,7 @@ exports.mostrarInicio1 = function(req, res){
     console.log(Purse);
     purse.countDocuments({user: req.user._id}, function(err, count){
         if(count>0) {
-            res.render("inicioApp", {
-                layout: "appHome.handlebars",
-                nombrePagina: "Inicio"  
-            });
-            console.log("Si está registrado")
+            res.redirect("/home");
         } else {
             res.render("homeNewUser", {
                 layout: "main.handlebars",
@@ -35,6 +31,20 @@ exports.mostrarInicio1 = function(req, res){
     })
     
 };
+
+exports.mostrarAppHome = async(req, res) => {
+
+    const purs = await Purse.findOne({user: req.user._id});
+    console.log(purs.account);
+    
+    res.render("inicioApp", {
+        layout: "appHome.handlebars",
+        data: purs,
+        nombrePagina: "Inicio"  
+    });
+    console.log("Si está registrado")
+
+}
 
 exports.bodyInicio = function(req, res){
     res.render("principal", {
@@ -56,4 +66,5 @@ exports.cuenta = function(req, res){
         boton: true
     });  
 };
+
 
