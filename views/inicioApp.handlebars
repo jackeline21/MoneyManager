@@ -1,0 +1,91 @@
+<div class="content-wrapper">
+
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Inicio </h3>
+    <nav aria-label="breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <span></span>Mis cuentas <i class="mdi mdi-cash-multiple icon-sm text-primary align-middle"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!--Div resúmen de cuentas-->
+  <div class="row">
+    {{#cardMaker data}}
+    {{/cardMaker}}
+    
+  </div>
+  <!--Fin div resúmenm de cuentas-->
+
+
+
+
+    <div class="row">
+      <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                  <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <h4 class="card-title">Ingresos</h4>
+                    <canvas id="income" style="height: 140px; display: block; width: 281px;" width="281" height="140" class="chartjs-render-monitor"></canvas>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                  <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <h4 class="card-title">Gastos</h4>
+                    <canvas id="expense" style="height: 140px; display: block; width: 281px;" width="281" height="140" class="chartjs-render-monitor"></canvas>
+                  </div>
+                </div>
+            </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-12"></div>
+    </div>
+  <!--Div para el dashboard-->
+
+
+  <div class="row-">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Tus transacciones</h4>
+          <p class="card-description"> Resumen de las transaccionesde tus cuentas</p>
+          <table class="table table-striped">
+            <thead>
+              <tr class="text-primary">
+                <th> # </th>
+                <th> Cuenta </th>
+                <th> Ingresos </th>
+                <th> Gastos </th>
+                <th> Saldo </th>
+              </tr>
+
+            </thead>
+            <tbody>
+              {{#tableMaker data}}
+              {{/tableMaker}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a
+          href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+          class="mdi mdi-heart text-danger"></i></span>
+    </div>
+  </footer>
+  <!-- partial -->
+</div>
