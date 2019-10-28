@@ -3,12 +3,10 @@ const Purse = mongoose.model("Purse");
 
 // Landing Page 
 exports.mostrarInicio = async(req, res) =>{
-    const purs = await Purse.findOne({user: req.user._id});
-        
+   
         res.render("landingPage", {
-            data: purs,
-            nombrePagina: "WomanPurse",
-            data: purs 
+
+            nombrePagina: "Budget-Suport",
         });
     
 }
@@ -41,10 +39,12 @@ exports.mostrarAppHome = async(req, res) => {
     const purs = await Purse.findOne({user: req.user._id});
     console.log(purs.account);
     
+    
     res.render("inicioApp", {
         layout: "appHome.handlebars",
         data: purs,
-        nombrePagina: "Inicio"  
+        chartData: JSON.stringify(purs),
+        nombrePagina: "Inicio"
     });
     console.log("Si está registrado")
 

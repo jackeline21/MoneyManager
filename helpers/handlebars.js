@@ -96,15 +96,14 @@ module.exports = {
             counter += 1;
 
             html +=`<tr>
-                    <td> ${counter} </td>
+                    <td class="text-info"> ${counter} </td>
                     <td> ${ac}</td>
                     <td> ${ing[index]}</td>
                     <td> ${gast[index]} </td>
-                    <td> ${ing[index] - gast[index]}</td>
+                    <td class="text-success"> ${ing[index] - gast[index]}</td>
                     </tr>  `
 
         });
-
 
         /* 
         <tr>
@@ -170,7 +169,7 @@ module.exports = {
             counter += 1;
 
             html +=`<div class="col-md-4 stretch-card grid-margin">
-                    <div class="card bg-gradient-danger card-img-holder text-white">
+                    <div class="card bg-gradient-info card-img-holder text-white">
                     <div class="card-body">
                     <img src="/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">${ac}<i class="mdi mdi-chart-line mdi-24px float-right"></i>
@@ -186,7 +185,6 @@ module.exports = {
     
         */
         
-
         return (options.fn().html = html);
     }
     

@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 
-<body>
+<body onload="incomeChart(`{{chartData}}`)">
 
   <div class="container-scroller">
 
@@ -28,7 +28,7 @@
     <!--header-->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/appHome"><img src="/images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="/appHome"><img src="/images/logo-mini.svg" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="/appHome"><img src="/images/logo-mini.svg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -39,7 +39,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <div id="userName">
             <!-- Nombre del usuario -->
-            <p> <span>Bienvenida</span> {{user.name}}</p>
+            <p> <span>Bienvenido(a)</span> {{user.name}}</p>
           </div>
 
           <li class="nav-item nav-logout d-none d-lg-block">
@@ -488,6 +488,9 @@
     <!-- Custom js for this page -->
     <script src="/js/dashboard.js"></script>
     <script src="/js/todolist.js"></script>
+    <script src="/js/Chart.js"></script>
+    <script src="/js/Chart.bundle.js"></script>
+    <script src="/js/ChartStart.js"></script>
     <!-- End custom js for this page -->
 
 
