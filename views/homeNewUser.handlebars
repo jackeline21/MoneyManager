@@ -28,7 +28,7 @@
         <!--header-->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="/images/logo.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="/images/logo-mini.svg" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="/"><img src="/images/logo-mini.svg"
                         alt="logo" /></a>
             </div>
@@ -40,7 +40,7 @@
                 <ul class="navbar-nav navbar-nav-right">
                     <div id="userName">
                         <!-- Nombre del usuario -->
-                        <p> <span>Bienvenida</span> {{user.name}}</p>
+                        <p> <span>Bienvenido(a)</span> {{user.name}}</p>
                     </div>
                     
                     <li class="nav-item nav-logout d-none d-lg-block">
@@ -79,8 +79,8 @@
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">David Grey. H</span>
-                                <span class="text-secondary text-small">Project Manager</span>
+                                <span class="font-weight-bold mb-2">{{user.name}}</span>
+                                <span class="text-secondary text-small">Mis presupuesto</span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                         </a>
