@@ -7,9 +7,7 @@ mongoose.connect(process.env.DATABASE,{
     useUnifiedTopology: true
 });
 
-mongoose.connection.on("error", error => {
-    console.log(error);
-})
+mongoose.connection.on("error", error => {})
 
 require("../models/categoria");
 require("../models/purse");

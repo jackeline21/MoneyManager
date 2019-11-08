@@ -17,8 +17,7 @@ exports.mostrarInicio1 = function(req, res){
     // Evaluar si es un usuario existente o no 
 
     let purse = Purse.count()
-    console.log(res.locals.user.email);
-    console.log(Purse);
+    
     purse.countDocuments({user: req.user._id}, function(err, count){
         if(count>0) {
             res.redirect("/home");
@@ -27,7 +26,6 @@ exports.mostrarInicio1 = function(req, res){
                 layout: "main.handlebars",
                 nombrePagina: "Inicio"
             });
-            console.log("No está registrado")
         }   
 
     })
@@ -37,16 +35,13 @@ exports.mostrarInicio1 = function(req, res){
 exports.mostrarAppHome = async(req, res) => {
 
     const purs = await Purse.findOne({user: req.user._id});
-    console.log(purs.account);
-    
-    
+
     res.render("inicioApp", {
         layout: "appHome.handlebars",
         data: purs,
         chartData: JSON.stringify(purs),
         nombrePagina: "Inicio"
     });
-    console.log("Si está registrado")
 
 }
 

@@ -18,7 +18,6 @@ exports.iniciarSesion = function(req, res){
         tagline: "Administra tu dinero de la mejor manera",
     });   
 }
-console.log("test");
 
 exports.saveUser = async(req, res, next) => {
 
@@ -32,7 +31,6 @@ exports.saveUser = async(req, res, next) => {
         
         //enviar los errores al usuario
         req.flash("error", errorsArray);
-        console.log(errorsArray)
         res.render("crearCuenta",{
             messages: req.flash()
         });
@@ -49,12 +47,11 @@ exports.saveUser = async(req, res, next) => {
 }
 
 exports.authenticateUser = function(req, res, next){
-    console.log("configuracion controller")
-    console.log( req.body)
     passport.authenticate('local', {
         successRedirect: "/appHome",
-        failureRedirect: "/",
-        failureFlash: true
+        failureRedirect: "/iniciarSesion",
+        failureFlash: true,
+        failureFlash: "usuario o contraseña erroneos."
     })(req, res, next);
 }
 
@@ -81,12 +78,12 @@ exports.formularioReestablecerPassword = (req, res) => {
     // Si el usuario no existe
     if (!usuario) {
       req.flash("error", ["El correo electrónico ingresado no existe"]);
-      return res.redirect("/reestablecerPassword");
+      return res.redirect("/res_pass");
     }
   
     // El usuario existe, generar el token
     usuario.token = crypto.randomBytes(20).toString("hex");
-    usuario.expira = Date.now() + 3600000;
+    usuario.expires = Date.now() + 3600000;
   
     // Guardar el usuario
     await usuario.save();
@@ -112,9 +109,9 @@ exports.formularioReestablecerPassword = (req, res) => {
   // Mostrar el formulario de cambio de contraseña
   exports.formularioNuevoPassword = async (req, res) => {
     // buscar el usuario por medio del token y la fecha de expiración
-    const usuario = await Usuario.findOne({
+    const usuario = await User.findOne({
       token: req.params.token,
-      expira: { $gt: Date.now() }
+      expires: { $gt: Date.now() }
     });
   
     // No se pudo encontrar el usuario con el token o token vencido
@@ -122,11 +119,11 @@ exports.formularioReestablecerPassword = (req, res) => {
       req.flash("error", [
         "Solicitud expirada. Vuelve a solicitar el cambio de contraseña"
       ]);
-      return res.redirect("/reestablecerPassword");
+      return res.redirect("/res_pass");
     }
   
     // Mostrar el formulario de nueva password
-    res.render("nuevaPassword", {
+    res.render("nuevoPassword", {
       nombrePagina: "Ingresa tu nueva contraseña",
       tagline: "Asegurate de utilizar una contraseña segura"
     });
@@ -135,9 +132,9 @@ exports.formularioReestablecerPassword = (req, res) => {
   // Almacena la nueva contraseña
   exports.almacenarNuevaPassword = async (req, res) => {
     // buscar el usuario por medio del token y la fecha de expiración
-    const usuario = await Usuario.findOne({
+    const usuario = await User.findOne({
       token: req.params.token,
-      expira: { $gt: Date.now() }
+      expires: { $gt: Date.now() }
     });
   
     // No se pudo encontrar el usuario con el token o token vencido
@@ -145,7 +142,7 @@ exports.formularioReestablecerPassword = (req, res) => {
       req.flash("error", [
         "Solicitud expirada. Vuelve a solicitar el cambio de contraseña"
       ]);
-      return res.redirect("/reestablecerPassword");
+      return res.redirect("/res_pass");
     }
   
     // Obtener el nuevo password
@@ -161,3 +158,9 @@ exports.formularioReestablecerPassword = (req, res) => {
     req.flash("correcto", ["Contraseña modificada correctamente"]);
     res.redirect("/iniciarSesion");
   };
+
+exports.perfil = function(req, res){
+  res.render("perfil",{
+      layout: "appHome.handlebars"
+  });
+}

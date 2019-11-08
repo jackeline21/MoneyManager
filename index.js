@@ -11,21 +11,21 @@ const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
 const passport = require("passport");
-
+const createError = require("http-errors");
 
 
 // Archivo para las variables de entorno
-require("dotenv").config({path: "variables"});
+require("dotenv").config({ path: "variables" });
 
 const app = express();
 
 // habilatarn body-parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // habilitar handlebars como template engine
 app.engine(
-    "handlebars", 
+    "handlebars",
     expressHandleBars({
         defaultlayout: "main",
         helpers: require("./helpers/handlebars")
@@ -34,26 +34,28 @@ app.engine(
 
 app.set("view engine", "handlebars");
 
-app.use(flash());
 
-app.use((req, res, next) => {
-    res.locals.messages = flash.messages;
-    next();
-});
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cookieParser());
-  
+
 app.use(
     session({
         secret: process.env.SECRET,
-        key: process. env.KEY,
-        resave: false, 
+        key: process.env.KEY,
+        resave: false,
         saveUninitialized: false,
         store: new MongoStore({ mongooseConnection: mongoose.connection })
     })
 );
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.messages = req.flash();
+    next();
+});
 
 //passport config
 require("./config/passport")(passport)
@@ -61,12 +63,29 @@ require("./config/passport")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('*', function(req, res, next){
+app.get('*', function (req, res, next) {
     res.locals.user = req.user || null;
-    console.log(req.user)
     next();
 })
 
 app.use("/", router());
+
+// 404
+app.use((req, res, next) => {
+    next(createError(404, "La página que has solicitado no existe"));
+});
+
+// Administración de los errores
+app.use((error, req, res, next) => {
+    const status = error.status || 500;
+    res.locals.status = status;
+    res.status(status);
+
+    res.render("error", {
+        status,
+        message: error.message
+    });
+});
+
 
 app.listen(process.env.PORT);

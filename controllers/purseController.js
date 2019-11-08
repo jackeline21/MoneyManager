@@ -7,9 +7,7 @@ exports.start = async (req, res) => {
     const pur = new purse({
         user: req.user._id
     });
-    pur.save(function(err, cb){
-        console.log(err);
-        
+    pur.save(function(err, cb){     
     })
 
     purse.updateOne({
@@ -21,7 +19,6 @@ exports.start = async (req, res) => {
         }}
     },
     function(err, cb){
-        console.log(err);
     });
 
     let d = new Date();
@@ -36,15 +33,9 @@ exports.start = async (req, res) => {
             "month": month
         }}
     },
-    function(err, cb){
-        console.log(err);
-        
-    });
+    function(err, cb){});
 
     res.redirect("/appHome")
-
-    console.log(req.body);
-
 }
 
 exports.addAccount = async (req, res) => {
@@ -58,14 +49,9 @@ exports.addAccount = async (req, res) => {
             "name": req.body.account
         }}
     },
-    function(err, cb){
-        console.log(err);
-    });
+    function(err, cb){});
 
     res.redirect("/appHome")
-
-    console.log(req.body);
-
 }
 
 exports.addIncome = async(req, res) => {
@@ -78,19 +64,13 @@ exports.addIncome = async(req, res) => {
             "account": req.body.account,
             "comment": req.body.comment
         }}
-    },function(err, cb) {
-        console.log(err);
-        
-    })
+    },function(err, cb) {})
 
     res.redirect("/appHome")
-
-    console.log(req.body);
 
 }
 
 exports.addExpense = async(req, res) => {
-    console.log(req.body);
     purse.updateOne({
         user: req.user._id
     },
@@ -103,9 +83,7 @@ exports.addExpense = async(req, res) => {
         }}
         
         
-    },function(err, cb) {
-        console.log(err); 
-    })
+    },function(err, cb) {})
 
     res.redirect("/appHome");
 }

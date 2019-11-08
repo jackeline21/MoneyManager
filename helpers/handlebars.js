@@ -54,9 +54,6 @@ module.exports = {
         let ing = [];
         let gast = [];
 
-        console.log(e);
-        
-
         e.income.forEach(inc => {
             if(!acc.includes(inc.account)){
                 acc.push(inc.account);
@@ -85,10 +82,6 @@ module.exports = {
             ing.push(suminc);
             gast.push(sumexp);
         });
-
-        console.log(acc);
-        console.log(ing);
-        console.log(gast);
 
         let counter = 0;
         
@@ -105,18 +98,6 @@ module.exports = {
 
         });
 
-        /* 
-        <tr>
-                <td> 1 </td>
-                <td> Herman Beck </td>
-                <td>
-                  nada
-                </td>
-                <td> $ 77.99 </td>
-              </tr>
-        */
-        
-
         return (options.fn().html = html);
     },
     cardMaker: (e, options) => {
@@ -126,9 +107,6 @@ module.exports = {
         let acc = [];
         let ing = [];
         let gast = [];
-
-        console.log(e);
-        
 
         e.income.forEach(inc => {
             if(!acc.includes(inc.account)){
@@ -140,7 +118,6 @@ module.exports = {
                 acc.push(exp.account);
             }
         })
-
 
         acc.forEach(function(ac, index){
             let suminc = 0;
@@ -158,10 +135,6 @@ module.exports = {
             ing.push(suminc);
             gast.push(sumexp);
         });
-
-        console.log(acc);
-        console.log(ing);
-        console.log(gast);
 
         let counter = 0;
         
@@ -179,14 +152,29 @@ module.exports = {
                     </div> `
 
         });
-
-
-        /* 
-    
-        */
         
         return (options.fn().html = html);
+    },
+    
+  mostrarAlertas: (errors = {}, alerts) => {
+    const categoria = Object.keys(errors);
+
+    let html = "";
+
+    if (categoria.length) {
+      errors[categoria].forEach(error => {
+          
+          if(categoria == "error"){
+            html += `<div id="toast-contrr"class="alert alert-danger">${error}</div>`;
+          }
+          if(categoria == "exito"){
+            html += `<div class="alert alert-success">${error}</div>`;
+          }
+      });
     }
+
+    return (alerts.fn().html = html);
+  }
     
 
 }
