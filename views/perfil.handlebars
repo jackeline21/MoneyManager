@@ -1,0 +1,48 @@
+ <form action="/editarPerfil" method="POST" enctype="multipart/form-data">
+<div class="col-12 grid-margin stretch-card">
+   
+        <div class="card">
+            <div class="card-body">
+                <h4 class=" text-center text-info">Datos personales</h4>
+
+                <div id="cambiarImagen" class="nav-profile-img">
+
+                    <img src="/uploads/profiles/{{user.image}}" alt="image">
+                    <span class="availability-status online"></span>
+                    
+                </div>
+                
+                <div class="nav-profile-text">
+                    <p class="mb-1 text-primary">{{user.name}}</p>
+                </div>
+
+                <input id="image" name="image" type="file" class=" btn btn-outline-danger btn-icon-text btn-sm">Cambiar imagen de perfil</input>
+
+                <div class="forms-sample">
+                    <div class="form-group">
+                        <label for="name">Nombre y Apellido</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="nombre" value="{{user.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="{{user.email}}">
+                    </div>
+
+                    <h4 class="card-title text-center text-info">Cambio de contraseña</h4>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="*****">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Repetir contraseña</label>
+                        <input type="password" class="form-control" name="confirm_password" id="c_password" placeholder="*****">
+                    </div>
+                    
+                    <button id="botonesPerfil" type="submit" class="btn btn-gradient-primary mr-2">Aceptar</button>
+                    <button id="botonesPerfil" class="btn btn-light">Cancelar</button>
+                </div>
+            </div>
+        
+    </div>
+</div>
+</form>

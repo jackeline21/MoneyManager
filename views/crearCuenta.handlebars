@@ -28,6 +28,10 @@
                 <div class="brand-logo">
                   <img src="/images/logo.svg">
                 </div>
+                {{#if messages}}
+                {{#mostrarAlertas messages}}
+                {{/mostrarAlertas}}
+                {{/if}}
                 <h4>¿Quiéres comenzar a cuidar tus finanzas?</h4>
                 <h6 class="font-weight-light">¡Regístrate! llena el formulario.</h6>
                 <form action="/crearCuenta" class="pt-3 validate-form"  method="POST">
@@ -70,6 +74,7 @@
     <script src="/js/off-canvas.js"></script>
     <script src="/js/hoverable-collapse.js"></script>
     <script src="/js/misc.js"></script>
+    <script src="/js/mensajes.js"></script>
     <!-- endinject -->
   </body>
 </html>

@@ -13393,4 +13393,14 @@ dl {
 #userName span {
   color: #0f1531;
 }
+
+#cambiarImagen {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+#botonesPerfil{
+  margin-bottom: 5em;
+}
+
 /*# sourceMappingURL=style.css.map */

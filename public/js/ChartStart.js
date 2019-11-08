@@ -1,14 +1,11 @@
 
 function incomeChart(e){
     const obj = JSON.parse(e)
-    
-    console.log(obj.income);
-    
+
     let labelz = [];
     let numbers = [];
     
     obj.income.forEach(inc => {
-        console.log(inc.account);
         if (!labelz.includes(inc.account)) {
             labelz.push(inc.account);
         }
@@ -18,18 +15,11 @@ function incomeChart(e){
         let sum = 0;
         obj.income.forEach(inc => {
             if (lab == inc.account) {
-                console.log(inc.amount);
                 sum += Number(inc.amount);
             }
         });
         numbers.push(sum);
     })
-
-
-    
-    console.log(labelz);
-    console.log(numbers)
-    
 
     let thisChart = document.getElementById("income");
     
@@ -82,7 +72,6 @@ function incomeChart(e){
     let numbers2 = [];
     
     obj.expense.forEach(inc => {
-        console.log(inc.account);
         if (!labelz2.includes(inc.account)) {
             labelz2.push(inc.account);
         }
@@ -92,18 +81,11 @@ function incomeChart(e){
         let sum = 0;
         obj.expense.forEach(inc => {
             if (lab == inc.account) {
-                console.log(inc.amount);
                 sum += Number(inc.amount);
             }
         });
         numbers2.push(sum);
     })
-
-
-    
-    console.log(labelz2);
-    console.log(numbers2)
-    
 
     let thisChart2 = document.getElementById("expense");
     
