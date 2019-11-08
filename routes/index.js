@@ -5,6 +5,7 @@ const homeController = require("../controllers/homeController");
 const userController = require("../controllers/userController");
 const purseController = require("../controllers/purseController");
 
+
 module.exports = () => {
 
     router.get("/", homeController.mostrarInicio);
@@ -68,6 +69,8 @@ module.exports = () => {
     router.get("/reestablecerPass/:token", userController.formularioNuevoPassword)
 
     router.post("/reestablecerPass/:token", userController.almacenarNuevaPassword)
+
+    router.post("/editarPerfil", userController.uploadImage, userController.editProfile)
 
     
     return router;
