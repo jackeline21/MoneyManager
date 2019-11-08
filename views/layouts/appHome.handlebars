@@ -249,72 +249,14 @@
 
           </div>
           <div class="modal-body ">
-            <h3 class="modal-title">Nuevo Ingreso</h3>
+            <h3 class="modal-title">Nueva categoría</h3>
             <!-- content goes here -->
             <form action="/add_income" method="POST">
 
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="currency">Introduzca el valor</label>
-                    <input type="text" autocomplete="off" class="form-control text-left" id="currency" name="amount"
-                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': 'L ', 'placeholder': '0'">
-                  </div>
-                  <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-md-6">
-
-                  <div class="form-group">
-                    <label for="date">Fecha</label>
-                    <div class="input-group date">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input type="text" autocomplete="off" name="date" class="form-control pull-right dateselect"
-                        id="datepicker" required="required">
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-
-                  <!-- /.col-lg-6 -->
-                </div>
-
-                <!-- /.input group -->
-              </div>
-
               <div class="form-group">
-                <label>Descripción</label>
-                <input type="text" autocomplete="off" name="comment" class="form-control" placeholder="Descripcion">
+                <label>Nombre de la categoría</label>
+                <input type="text" autocomplete="off" name="name" class="form-control" placeholder="Comida">
               </div>
-
-
-              <div class="row">
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="sel1">Categoría</label>
-                    <select class="form-control" name="category" id="sel1">
-
-                    </select>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="sel1">Cuenta</label>
-                    <select class="form-control" name="account" id="sel1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <button type="submit" hidden="hidden" id="addIncome-button"></button>
-
             </form>
 
           </div>
