@@ -237,7 +237,10 @@ exports.editProfile = async (req, res) => {
 
   console.log(req.body);
   
-  user1.password = req.body.password;
+  if(req.body.password){
+    user1.password = req.body.password;
+  }
+  
                  
 
 
